@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coalition Simulator – Game of Thrones</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="card hero-card">
+            <h1>Coalition Simulator – Game of Thrones</h1>
+            <div class="muted intro">
+                A coalition simulator based on parliamentary government formation that's set in the Game of Thrones universe. Yes, Game of Thrones houses and the Iron Throne are monarchical, but this is more fun!
+            </div>
+
+            <details style="margin-top:12px">
+                <summary>How To Play</summary>
+                <ul class="muted howto-list" style="margin-top:8px">
+                    <li>In parliamentary systems, voters pick a legislature and a government is then formed by assembling a cabinet (executives). The <strong>cabinet must win a majority</strong> of legislative seat support for government formation to occur.</li>
+                    <li>Your job is to build that legislative majority: choose which houses (political parties) join the cabinet and how to split positions (ex. Hand of the King/Queen, Master of Coin).</li>
+                    <li>If your cabinet has the mimum number of parties required to control a legislative majority it’s a <strong>Minimal Winning Coalition (MWC)</strong>. If your cabinet wins but includes extra, unecessary, partners for majority support it’s a <strong>Surplus Majority</strong>.
+                        You should aim for creating the <strong>Least Minimal Winning Coalition(LMWC)</strong>, which is the winning coalition with the smallest seat surplus.</li>
+                    <li>Houses are assigned a policy positon on the matter of <em><strong>Centralization of Power under the Iron Throne</strong></em>. Positions are on a scale from <strong>-5 to +5</strong> and intend to reflect actual house positions in the GOT univerese. 
+                        Players should try to align party positions in their formation of coalitions. A coalition is considered connected if the <strong>difference</strong> between house policy positions for any two houses is <strong>less than 5</strong>.</li>
+                    <li>Players should also aim to <strong>form fair cabinets</strong> relative to the proportion of each parties legislative seat share. Parties that contribute more seats should have a larger portfolio. Portfolio proportionality is scored from 0 to 100 (100 being perfectly proportional).
+                         This is done by comparing each party’s seat share to its share of cabinet positions.</li>
+                    <li>If you fail to form a majority, the simulation appoints a <strong>caretaker government</strong>. A caretaker government is a temporary cabinet (typically the old government) that serves until a new government can be fromed.</li>
+                </ul>
+            </details>
+        </div>
+
+        <div class="row" style="justify-content:flex-start;gap:10px;margin:6px 0 12px">
+            <button class="btn" id="btn-reset">Reset</button>
+        </div>
+
+        <div id="caretaker-banner" class="card"
+            style="display:none; margin-top:10px; border-color:#5e1b1b; background:rgba(69, 19, 19, 1);">
+            <strong>Caretaker Government Appointed</strong> – Click <em>Reset</em> to start a new round.
+        </div>
+
+        <div class="grid g-3" style="margin-top:14px">
+            <div class="card" id="panel-parties">
+                <h2>Houses</h2>
+                <div class="muted small">
+                    <strong>Policy:</strong> Centralization under the Iron Throne (−5 autonomy, +5 centralized)
+                </div>
+                <div id="party-list" style="margin-top:10px"></div>
+            </div>
+
+            <div class="card" id="panel-portfolios">
+                <h2>Cabinet Portfolios</h2>
+                <div class="small muted">
+                    Assign cabinet positions.
+                </div>
+                <div id="portfolio-table" style="margin-top:8px"></div>
+                <div class="row" style="margin-top:10px">
+                    <button class="btn" id="btn-eval">Evaluate</button>
+                </div>
+            </div>
+
+            <div class="card" id="panel-summary">
+                <h2>Coalition Summary</h2>
+                <div class="grid" style="gap:8px">
+                    <div>
+                        <div class="small muted">Majority Needed</div>
+                        <div class="kpi" id="kpi-majority">101/200</div>
+                    </div>
+                    <div>
+                        <div class="small muted">Total seats</div>
+                        <div class="kpi" id="kpi-seats">0</div>
+                    </div>
+                    <div>
+                        <div class="small muted">Policy connected?</div>
+                        <div class="kpi" id="kpi-connected">—</div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:12px">
+                    <span class="badge summary-badge" id="badge-status">Not a Government</span>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <span class="pill summary-pill">Portfolio Proportionality: <strong id="proportionality-score">—</strong></span>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <span class="pill summary-pill" id="pill-type">Government Type: <strong>—</strong></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

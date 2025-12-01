@@ -1,0 +1,186 @@
+/* Color variables */
+:root {
+    --bg: #0f1220;
+    --card: #161a2b;
+    --muted: #9096b2;
+    --text: #e8ebff;
+    --good: #3ad29f;
+    --warn: #ffc857;
+    --bad: #ff6b6b;
+}
+
+/* Change from defualt contentbox */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Page background and font style */
+body {
+    margin: 0;
+    font: 17px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    color: var(--text);
+    background: linear-gradient(180deg, #0c1020, #0a0d1a);
+}
+
+/* Page layout */
+.wrap {
+    max-width: 1150px;
+    margin: 24px auto;
+    padding: 12px;
+}
+
+h1 {
+    font-size: 34px;
+    margin: 0 0 8px;
+}
+
+h2 {
+    font-size: 26px;
+    margin: 0 0 10px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #242a44;
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+/* Grid layout */
+.grid {
+    display: grid;
+    gap: 18px;
+}
+
+.g-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width:900px) {
+    .g-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Pill boxes and badge styles */
+.pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #1f2542;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: #1b2142;
+    border: 1px solid #2c3560;
+    color: #b8c0ff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Muted text */
+.muted {
+    color: var(--muted);
+}
+
+/* Buttons */
+.btn {
+    cursor: pointer;
+    background: linear-gradient(180deg, #1f263f, #131a31);
+    border: 1px solid #2b3155;
+    color: var(--text);
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: transform .06s ease, box-shadow .2s;
+    box-shadow: none;
+}
+
+.btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* Flex rows */
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border-bottom: 1px solid #242a44;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Big number and small text */
+.kpi {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.small {
+    font-size: 15px;
+}
+
+/* Form inputs */
+.input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #2b3155;
+    background: #0e1430;
+    color: var(--text);
+}
+
+/* Dropdowns */
+details {
+    border: 1px solid #2b3155;
+    border-radius: 10px;
+    padding: 10px;
+    background: #101635;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Hero and intro text */
+.hero-card {
+    margin-bottom: 12px;
+}
+
+.intro {
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.howto-list {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.howto-list li {
+    margin-bottom: 8px;
+}
